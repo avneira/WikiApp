@@ -1,0 +1,55 @@
+{%extends "layout.html"%}
+
+{%block titulo%}
+    WikiApp
+{%endblock%}
+
+{%block contenido%}
+<h1 style="margin-left: 20px">Create a new article </h1>
+<form class="container mt-4" method="POST" action="{%url 'wikiPy:newArticle'%}">
+    {% csrf_token %}
+    <div class="row justify-content-start" >
+        <div class="col-md-6"> <!-- Controla el ancho de los elementos -->
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="nameArticle">
+            </div>
+
+            <div style="max-width: 600px;">
+                <label class="form-label"> Select theme </label>
+                
+                <select class="form-select" name="areaSeleccionada" aria-label="Default select example" style="font-size: 16px;">
+                    {% for themeInfo in listTheme %}
+                    <option value="{{themeInfo.id}}">{{themeInfo.nameTheme}}</option>
+
+                    {%endfor%}
+                </select>
+            </div>
+
+            <br>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" name="contentArticle"></textarea>
+            </div>
+            
+
+
+            <br>
+            <br>
+
+
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary" type="submit">Create Article</button>
+                <button class="btn btn-secondary" type="button">Cancel</button>
+              </div>
+
+            <div>
+
+            </div>
+            
+        </div>
+    </div>
+</form>
+    
+{%endblock%}   

@@ -1,0 +1,34 @@
+{%extends "layout.html"%}
+
+{%block titulo%}
+    Article : {{ objArticle.nameArticle }}
+{%endblock%}
+
+{%block contenido%}
+    <h1 style="margin-left: 20px">Article: {{ objArticle.nameArticle}} </h1>
+    <div class="p-3" style="margin-left: 10px">
+        <!-- Campo de búsqueda de artículo -->
+        
+    
+        <!-- Selector de tema -->
+       
+    </div>
+    <br>
+
+    
+    <div class="card" style="width:50rem; margin-left:20px;">
+        
+        <div class="card-body">
+          <h5 class="card-title"> Theme: {{ objArticle.themeR.nameTheme}}</h5>
+          <p class="card-text"> {{ objArticle.contentArticle}}</p>
+          
+        </div>
+      </div>
+      <br>
+      <a href="{% url 'wikiPy:home'%}" class="btn btn-secondary" style="margin-left: 25px;">Go Home</a>
+      <br>
+    <br>
+
+
+    
+{%endblock%} 
